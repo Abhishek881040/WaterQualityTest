@@ -1,0 +1,11 @@
+# Python venv
+venv/
+_pycache_/
+*.pyc
+
+# VS Code settings
+.vscode/
+
+# OS files
+.DS_Store
+Thumbs.db
