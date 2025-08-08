@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Water Quality Monitoring System</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-tint"></i> Water Quality Monitor</h1>
+            <p>Real-time contamination detection system</p>
+        </header>
+
+        <div class="dashboard">
+            <div class="input-section">
+                <h2>Manual Water Test</h2>
+                <form id="waterTestForm">
+                    <div class="form-group">
+                        <label for="ph">pH Level (0-14)</label>
+                        <input type="number" id="ph" step="0.1" min="0" max="14" value="7.0" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="turbidity">Turbidity (NTU)</label>
+                        <input type="number" id="turbidity" step="0.1" min="0" value="1.0" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="dissolved_oxygen">Dissolved Oxygen (mg/L)</label>
+                        <input type="number" id="dissolved_oxygen" step="0.1" min="0" value="8.0" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="conductivity">Conductivity (μS/cm)</label>
+                        <input type="number" id="conductivity" min="0" value="500" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="temperature">Temperature (°C)</label>
+                        <input type="number" id="temperature" step="0.1" value="25" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="chlorine">Chlorine (mg/L)</label>
+                        <input type="number" id="chlorine" step="0.01" min="0" value="0.5" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="nitrate">Nitrate (mg/L)</label>
+                        <input type="number" id="nitrate" step="0.1" min="0" value="5" required>
+                    </div>
+                    
+                    <button type="submit" class="btn">Test Water Quality</button>
+                </form>
+            </div>
+
+            <div class="results-section">
+                <h2>Test Results</h2>
+                <div id="loading" class="loading" style="display: none;">
+                    <div class="spinner"></div>
+                    <p>Analyzing water sample...</p>
+                </div>
+                <div id="results" class="results" style="display: none;">
+                    <div class="result-card" id="qualityResult">
+                        <h3>Water Quality</h3>
+                        <p id="qualityText"></p>
+                        <div class="probability-meter">
+                            <div class="probability-bar" id="probabilityBar"></div>
+                            <span id="probabilityText">0%</span>
+                        </div>
+                    </div>
+                    
+                    <div class="parameters">
+                        <h3>Tested Parameters</h3>
+                        <table id="parametersTable">
+                            <thead>
+                                <tr>
+                                    <th>Parameter</th>
+                                    <th>Value</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="alerts-section">
+            <h2><i class="fas fa-bell"></i> Recent Alerts</h2>
+            <div id="alertsContainer" class="alerts-container">
+                <!-- Alerts will be loaded here -->
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
